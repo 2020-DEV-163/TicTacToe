@@ -4,9 +4,10 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.kata.tictactoe.CellOccupiedException;
-import com.kata.tictactoe.InvalidCellRangeException;
-import com.kata.tictactoe.PlayTicTacToe;
+import com.kata.game.tictactoe.CellOccupiedException;
+import com.kata.game.tictactoe.InvalidCellRangeException;
+
+import temp.PlayTicTacToe;
 
 public class PlayTicTacToeTest {
 
@@ -15,6 +16,13 @@ public class PlayTicTacToeTest {
 
 		PlayTicTacToe playTicTacToe = new PlayTicTacToe();
 		assertNotNull(playTicTacToe);
+	}
+	
+	@Test
+	public void shouldBeAbleToDisplayInstructions() throws CellOccupiedException, InvalidCellRangeException {
+		
+		PlayTicTacToe playTicTacToe = new PlayTicTacToe();
+		playTicTacToe.displayInstructions();
 	}
 
 }
