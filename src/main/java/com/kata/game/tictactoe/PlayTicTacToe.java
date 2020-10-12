@@ -19,6 +19,7 @@ public class PlayTicTacToe {
 	}
 
 	public void getInputfromPlayer() {
+		int count=0;
 		try(Scanner scan = new Scanner(System.in)){
 			Game game = new Game();
 			do {
@@ -30,7 +31,8 @@ public class PlayTicTacToe {
 						"Please provide your inputs in a row column fashion with an empty space:: PlayerX, enter an empty row and column to place your mark!");
 				row = scan.nextInt();
 				col = scan.nextInt();
-			} while (true);
+				count++;
+			} while (count==0);
 		}
 	}
 
