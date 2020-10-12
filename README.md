@@ -62,13 +62,9 @@ Eclipse - Any IDE which supports Java
 
 # Run test cases in eclipse IDE
 ```
-1) Download project as zip file and unzip the same to a folder. 
-2) In eclipse IDE,  Go to the below path
-   File -> Import -> select Existing Maven Project option -> Next -> 
-   Browse 	extracted folder and Finish
-3) Then, Right click project in Project Explorer window and 
+1) Right click project in Project Explorer window and 
    select Run As -> Maven install
-4) Once above steps done open <b>TicTacToeTestSuite</b> class and right click  
+2) Once above steps done open one of Test class and right click  
    file and choose Run As -> JUnit Test
 ```
 # Code coverage report in eclipse
@@ -78,15 +74,11 @@ Go to Tests package, From eclipse Right click Coverage As -> Junit
 ```
 # Steps to run the application in command prompt
 ```
-
+1) Go to root folder of project where pom.xml resides
+2) Run mvn clean package assembly:single 
 After successful maven build
-Goto <ProjectDirectory>\target\classes
+Goto <ProjectDirectory>\target\
 and execute below command
-java -jar TicTacToe.jar
+java -jar tictactoegame-0.0.1-SNAPSHOT-jar-with-dependencies.jar
 Press Enter
-Then give row value to be placed, space separation followed by column value to be placed as below
-0 1 [in words : Zero space One]
-
-Please provide the row and column values until the game ends!!
-
 
