@@ -10,6 +10,12 @@ public class PlayTicTacToe {
 
 	private final static Logger LOGGER = Logger.getLogger(PlayTicTacToe.class.getName());
 
+	public static void main(String[] args) throws CellOccupiedException, InvalidCellRangeException {
+		PlayTicTacToe playTicTacToe = new PlayTicTacToe();
+		playTicTacToe.playGame();
+
+	}
+	
 	public void playGame() throws CellOccupiedException, InvalidCellRangeException {
 
 		displayInstructions();
@@ -58,6 +64,7 @@ public class PlayTicTacToe {
 		LOGGER.info("Rules \n" + builder.toString());
 	}
 
+	
 
 
 }
