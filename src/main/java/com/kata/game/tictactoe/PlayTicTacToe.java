@@ -13,8 +13,27 @@ public class PlayTicTacToe {
 	public void playGame() throws CellOccupiedException, InvalidCellRangeException {
 
 		displayInstructions();
+
+		getInputfromPlayer();
+
 	}
-	
+
+	public void getInputfromPlayer() {
+		try(Scanner scan = new Scanner(System.in)){
+			Game game = new Game();
+			do {
+
+				game.gameBoard.printBoard();
+				int row;
+				int col;
+				LOGGER.info(
+						"Please provide your inputs in a row column fashion with an empty space:: PlayerX, enter an empty row and column to place your mark!");
+				row = scan.nextInt();
+				col = scan.nextInt();
+			} while (true);
+		}
+	}
+
 	public void displayInstructions() {
 
 		StringBuilder builder = new StringBuilder();
@@ -39,4 +58,4 @@ public class PlayTicTacToe {
 
 
 
-	}
+}
