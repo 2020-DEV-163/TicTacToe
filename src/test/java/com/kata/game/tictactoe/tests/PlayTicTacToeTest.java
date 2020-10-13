@@ -9,6 +9,7 @@ import com.kata.game.tictactoe.InvalidCellRangeException;
 import com.kata.game.tictactoe.PlayTicTacToe;
 
 
+
 public class PlayTicTacToeTest {
 
 	@Test
@@ -25,12 +26,6 @@ public class PlayTicTacToeTest {
 		playTicTacToe.displayInstructions();
 	}
 	
-	@Test
-	public void shouldGetInputFromCommandLine() throws CellOccupiedException, InvalidCellRangeException {
-		
-		PlayTicTacToe playTicTacToe = new PlayTicTacToe();
-		playTicTacToe.displayInstructions();
-		playTicTacToe.getInputfromPlayer();
-	}
+	
 
 }
