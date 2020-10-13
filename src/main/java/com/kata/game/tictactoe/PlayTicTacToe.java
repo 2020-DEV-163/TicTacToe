@@ -15,30 +15,42 @@ public class PlayTicTacToe {
 		playTicTacToe.playGame();
 
 	}
-	
+
 	public void playGame() throws CellOccupiedException, InvalidCellRangeException {
 
 		displayInstructions();
-
 		getInputfromPlayer();
 
 	}
 
-	public void getInputfromPlayer() {
-		int count=0;
+	public void getInputfromPlayer() throws CellOccupiedException, InvalidCellRangeException {
 		try(Scanner scan = new Scanner(System.in)){
 			Game game = new Game();
 			do {
-
 				game.gameBoard.printBoard();
 				int row;
 				int col;
 				LOGGER.info(
-						"Please provide your inputs in a row column fashion with an empty space:: PlayerX, enter an empty row and column to place your mark!");
+						"Enter row and column separated with space:: Player " + game.gameBoard.getNextSymbol() + ", to set your mark on game board!");
 				row = scan.nextInt();
 				col = scan.nextInt();
-				count++;
-			} while (count==0);
+				game.play(row, col);
+				game.gameBoard.getNextSymbol();
+			} while (!game.isWinner() && !game.gameBoard.isCellsFullyOccupiedBySymbols());
+
+			determineGameState(game);
+		}
+
+	}
+
+	private void determineGameState(Game game) {
+		if (game.gameBoard.isCellsFullyOccupiedBySymbols() && !game.isWinner()) {
+			LOGGER.info("The game was a tie!");
+		} else {
+			LOGGER.info("Current board layout:");
+			game.gameBoard.printBoard();
+			game.gameBoard.getNextSymbol();
+			LOGGER.info(Character.toUpperCase(game.gameBoard.getCurrentSymbol()) + " Wins!");
 		}
 	}
 
@@ -64,7 +76,7 @@ public class PlayTicTacToe {
 		LOGGER.info("Rules \n" + builder.toString());
 	}
 
-	
+
 
 
 }
